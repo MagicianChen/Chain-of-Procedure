@@ -21,8 +21,10 @@ ProcedureVQA 是论文 *Chain-of-Procedure: Hierarchical Visual-Language Reasoni
 | 2 | glm-5.3-flash | effort max | 0.627 | 0.623 | 74.67 |
 | 3 | deepseek-v4.1-flash | effort high | 0.646 | 0.625 | 71.56 |
 | 4 | gemini-4-argon | effort high | 0.695 | 0.644 | 69.86 |
-| 5 | qwen3.5-27b | effort max | 0.673 | 0.656 | 68.69 |
-| 6 | claude-opus-5-5 | effort max | 0.614 | 0.593 | 63.85 |
+| 5 | qwen3.8-flash | effort max | 0.678 | 0.664 | 69.30 |
+| 6 | qwen3.5-27b | effort max | 0.673 | 0.656 | 68.69 |
+| 7 | qwen3.5-122b-a10b | effort max | 0.666 | 0.653 | 67.22 |
+| 8 | claude-opus-5-5 | effort max | 0.614 | 0.593 | 63.85 |
 
 ## Experiments results
 
