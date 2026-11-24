@@ -50,7 +50,7 @@ python score_bert.py --pred outputs/gpt-4.1/base.csv
 python score_llm.py --pred outputs/gpt-4.1/base.csv --workers 8
 ```
 
-The bundled examples are used by default. For the full set, add `--data /path/to/baselines_union.jsonl`.
+These commands run only the five samples shipped with the repository. The full set has 2,844 examples. For the full data, or any questions, email nlp2ct.guanhua@gmail.com. Once you have the file, pass it with `--data`.
 
 ## Citation
 
@@ -80,5 +80,3 @@ The bundled examples are used by default. For the full set, add `--data /path/to
     ISBN = "979-8-89176-395-1"
 }
 ```
-
-For the full set of 2,844 examples, or any questions, email nlp2ct.guanhua@gmail.com.

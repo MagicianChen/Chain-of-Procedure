@@ -50,7 +50,7 @@ python score_bert.py --pred outputs/gpt-4.1/base.csv
 python score_llm.py --pred outputs/gpt-4.1/base.csv --workers 8
 ```
 
-默认使用仓库里附带的样例。完整数据加上 `--data /path/to/baselines_union.jsonl`。
+上面的命令只跑仓库里附带的 5 条样例。完整评测集有 2844 条。要完整数据或有任何问题，请联系 nlp2ct.guanhua@gmail.com。拿到文件后，用 `--data` 传入。
 
 ## 引用
 
@@ -80,5 +80,3 @@ python score_llm.py --pred outputs/gpt-4.1/base.csv --workers 8
     ISBN = "979-8-89176-395-1"
 }
 ```
-
-完整数据（2844 条）或任何问题，请联系 nlp2ct.guanhua@gmail.com。
