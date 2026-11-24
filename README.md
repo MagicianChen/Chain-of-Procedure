@@ -28,12 +28,12 @@ This repository ships the evaluation source and a small slice of the data.
 
 | Model | Method | Setting | F1 | BERTScore | LLM |
 |---|---|---|---:|---:|---:|
-| qwen3.5-27b | baseline | effort max | 0.673 | 0.656 | 74.92 |
-| qwen3.5-27b | ours | effort max | **0.696** | **0.688** | **77.44** |
-| gpt-4.1 | baseline | no extra reasoning | 0.639 | 0.616 | 74.81 |
-| gpt-4.1 | ours | no extra reasoning | **0.686** | **0.678** | **77.56** |
-| claude-opus-5-5 | baseline | effort medium | 0.601 | 0.581 | 69.17 |
-| claude-opus-5-5 | ours | effort medium | **0.678** | **0.668** | **71.94** |
+| qwen3.5-27b | base | effort max | 0.673 | 0.656 | 74.92 |
+| qwen3.5-27b | cop | effort max | **0.696** | **0.688** | **77.44** |
+| gpt-4.1 | base | no extra reasoning | 0.639 | 0.616 | 74.81 |
+| gpt-4.1 | cop | no extra reasoning | **0.686** | **0.678** | **77.56** |
+| claude-opus-5-5 | base | effort medium | 0.601 | 0.581 | 69.17 |
+| claude-opus-5-5 | cop | effort medium | **0.678** | **0.668** | **71.94** |
 
 ## Run
 
@@ -42,19 +42,15 @@ pip install -r requirements.txt
 export OPENAI_API_KEY=your_key
 export OPENAI_BASE_URL=https://api.openai.com/v1
 
-python run.py --method baseline --model gpt-4.1 --workers 8
+python run.py --method base --model gpt-4.1 --workers 8
 python run.py --method cot --model gpt-4.1 --workers 8
-python run.py --method ours --model gpt-4.1 --workers 8
+python run.py --method cop --model gpt-4.1 --workers 8
 
-python score_bert.py --pred outputs/gpt-4.1/baseline.csv
-python score_llm.py --pred outputs/gpt-4.1/baseline.csv --workers 8
+python score_bert.py --pred outputs/gpt-4.1/base.csv
+python score_llm.py --pred outputs/gpt-4.1/base.csv --workers 8
 ```
 
 The bundled examples are used by default. For the full set, add `--data /path/to/baselines_union.jsonl`.
-
-## Data
-
-The full set has 2,844 examples. Contact nlp2ct.guanhua@gmail.com to obtain it.
 
 ## Citation
 
@@ -85,4 +81,4 @@ The full set has 2,844 examples. Contact nlp2ct.guanhua@gmail.com to obtain it.
 }
 ```
 
-Questions and comments are welcome at nlp2ct.guanhua@gmail.com.
+For the full set of 2,844 examples, or any questions, email nlp2ct.guanhua@gmail.com.

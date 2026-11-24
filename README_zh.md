@@ -28,12 +28,12 @@ ProcedureVQA 是论文 *Chain-of-Procedure: Hierarchical Visual-Language Reasoni
 
 | 模型 | 方法 | 设置 | F1 | BERTScore | LLM |
 |---|---|---|---:|---:|---:|
-| qwen3.5-27b | baseline | effort max | 0.673 | 0.656 | 74.92 |
-| qwen3.5-27b | ours | effort max | **0.696** | **0.688** | **77.44** |
-| gpt-4.1 | baseline | 不额外开推理 | 0.639 | 0.616 | 74.81 |
-| gpt-4.1 | ours | 不额外开推理 | **0.686** | **0.678** | **77.56** |
-| claude-opus-5-5 | baseline | effort medium | 0.601 | 0.581 | 69.17 |
-| claude-opus-5-5 | ours | effort medium | **0.678** | **0.668** | **71.94** |
+| qwen3.5-27b | base | effort max | 0.673 | 0.656 | 74.92 |
+| qwen3.5-27b | cop | effort max | **0.696** | **0.688** | **77.44** |
+| gpt-4.1 | base | 不额外开推理 | 0.639 | 0.616 | 74.81 |
+| gpt-4.1 | cop | 不额外开推理 | **0.686** | **0.678** | **77.56** |
+| claude-opus-5-5 | base | effort medium | 0.601 | 0.581 | 69.17 |
+| claude-opus-5-5 | cop | effort medium | **0.678** | **0.668** | **71.94** |
 
 ## 启动
 
@@ -42,19 +42,15 @@ pip install -r requirements.txt
 export OPENAI_API_KEY=your_key
 export OPENAI_BASE_URL=https://api.openai.com/v1
 
-python run.py --method baseline --model gpt-4.1 --workers 8
+python run.py --method base --model gpt-4.1 --workers 8
 python run.py --method cot --model gpt-4.1 --workers 8
-python run.py --method ours --model gpt-4.1 --workers 8
+python run.py --method cop --model gpt-4.1 --workers 8
 
-python score_bert.py --pred outputs/gpt-4.1/baseline.csv
-python score_llm.py --pred outputs/gpt-4.1/baseline.csv --workers 8
+python score_bert.py --pred outputs/gpt-4.1/base.csv
+python score_llm.py --pred outputs/gpt-4.1/base.csv --workers 8
 ```
 
 默认使用仓库里附带的样例。完整数据加上 `--data /path/to/baselines_union.jsonl`。
-
-## 数据
-
-完整评测集有 2844 条。获取请联系 nlp2ct.guanhua@gmail.com。
 
 ## 引用
 
@@ -85,4 +81,4 @@ python score_llm.py --pred outputs/gpt-4.1/baseline.csv --workers 8
 }
 ```
 
-欢迎来信讨论：nlp2ct.guanhua@gmail.com。
+完整数据（2844 条）或任何问题，请联系 nlp2ct.guanhua@gmail.com。

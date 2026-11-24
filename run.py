@@ -37,7 +37,7 @@ def load_finished_ids(path):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="ProcedureVQA next-step prediction")
-    parser.add_argument("--method", choices=["baseline", "cot", "ours", "all"], default="ours")
+    parser.add_argument("--method", choices=["base", "cot", "cop", "all"], default="cop")
     parser.add_argument("--model", default="gpt-4o")
     parser.add_argument("--base-url", default=None)
     parser.add_argument("--data", type=Path, default=ROOT / "data" / "cases.jsonl")
@@ -140,7 +140,7 @@ async def main():
         enable_thinking=True if args.enable_thinking else None,
         timeout=args.timeout,
     )
-    methods = ["baseline", "cot", "ours"] if args.method == "all" else [args.method]
+    methods = ["base", "cot", "cop"] if args.method == "all" else [args.method]
     for method in methods:
         await run_method(method, samples, args, llm)
 

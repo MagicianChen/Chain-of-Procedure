@@ -103,7 +103,7 @@ async def predict_ours(llm, sample, image_path):
 
 
 PREDICTORS = {
-    "baseline": predict_baseline,
+    "base": predict_baseline,
     "cot": predict_cot,
-    "ours": predict_ours,
+    "cop": predict_ours,
 }
